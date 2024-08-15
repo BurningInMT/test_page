@@ -144,36 +144,24 @@
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your video here -->
-        <video poster="" id="tree" autoplay controls muted loop height="100%">
-          <source src="static/videos/banner_video.mp4"
+       <div class="item" style="width: 339px;">
+        <video poster="" id="video_1" autoplay controls muted loop height="100%">
+          <source src="static/videos/1B_Demo_B_1.mp4"
           type="video/mp4">
         </video>
-        <!-- <h2 class="subtitle has-text-centered">
-          First video description.
-        </h2> -->
       </div>
-      <div class="item">
-        <!-- Your video here -->
-        <video poster="" id="tree" autoplay controls muted loop height="100%">
-          <source src="static/videos/banner_video.mp4"
+      <div class="item" style="width: 339px;">
+        <video poster="" id="video_2" autoplay controls muted loop height="100%">
+          <source src="static/videos/1B_Demo_B_2.mp4"
           type="video/mp4">
         </video>
-        <!-- <h2 class="subtitle has-text-centered">
-          Second video description.
-        </h2> -->
       </div>
-      <div class="item">
-        <!-- Your video here -->
-        <video poster="" id="tree" autoplay controls muted loop height="100%">
-          <source src="static/videos/banner_video.mp4"
+      <!-- <div class="item">
+        <video poster="" id="video_3" autoplay controls muted loop height="100%">
+          <source src="static/videos/1B_Demo_B_1.mp4"
           type="video/mp4">
         </video>
-        <!-- <h2 class="subtitle has-text-centered">
-         Third video description.
-       </h2> -->
-     </div>
+     </div> -->
   </div>
 </div>
 </div>
@@ -207,30 +195,51 @@
 </section>
 <!-- End paper abstract -->
 
+<!-- Analysis -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Analysis</h2>
+    <div class="content has-text-justified">
+      <p>
+        Methods like VastGaussian and CityGaussian skip the merging process between subspaces, 
+        <b>implicitly assuming that a single ray is primarily influenced by one subspace and predominantly contributed to by Gaussians within that subspace.</b> 
+        This assumption holds true for bird's-eye view datasets. Due to the limited perspective variation in these datasets, 
+        rays almost always pass downward through one, or at most two, subspaces.
+        Below figure shows the frequency histogram of the number of subspaces hit by each ray. 
+        As seen in more general datasets, such as street view datasetsand indoor datasets, 
+        rays often intersect multiple subspaces. This undermines the basic assumptions of VastGaussian and CityGaussian.    
+        
+        <b>Our distributed framework is computationally equivalent to the original 3DGS and does not rely on any assumptions about data distribution or perspective </b>, making it a more general approach. 
+      </p>
+    </div>
 
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <!-- <div class="container"> -->
-      <!-- Paper video. -->
-      <!-- <h2 class="title is-3" style="text-align: center">Video Presentation</h2> -->
-      <!-- <div class="columns is-centered has-text-centered"> -->
-        <!-- <div class="column is-four-fifths"> -->
-          
-          <!-- <div class="publication-video"> -->
-            <!-- Youtube embed code here -->
-            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
-          <!-- </div> -->
-        <!-- </div> -->
-      <!-- </div> -->
-    <!-- </div> -->
+    <img src="static/images/Fig2.png" alt="Graph for quality evaluation">
+
+    <div class="content has-text-justified">
+      <p>
+        Below figure shows blending results at the sub-space boundaries for different partition approaches. 
+        The cell-independent methods used in CityGaussian and VastGaussian can cause rendering artifacts at boundaries.
+      </p>
+    </div>
+    <img src="static/images/Dividing.png" alt="Graph for quality evaluation">
+
+    <div class="content has-text-justified">
+      <p>
+        Our distributed training approach <b>enables the use of a large number of Gaussian primitives.</b> 
+        We observed a strong positive correlation between the number of Gaussian primitives and the final model's PSNR.
+        When the number of primitives is similar, our PSNR closely matches the quality of 3DGS trained on a single GPU; 
+        however, we can effectively achieve <b>higher PSNRs by simply increasing the number of primitives.</b>
+      </p>
+    </div>
+    <img src="static/images/PSNRvsPrimitives.png" alt="Graph for quality evaluation">
+    <img src="static/images/PSNRvsPrimitives_2.png" alt="Graph for quality evaluation">
   </div>
 </section>
-<!-- End youtube video
+<!-- End Analysis -->
 
 
 <!--Visual Comparisons-->
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Visual Comparisons</h2>
     <div class="content has-text-justified">
@@ -256,7 +265,7 @@
                   <div class="bal-before-inset">
                   <img src="static/images/carousel2.jpg">
                     <div class="bal-beforePosition beforeLabel">
-                      Mip-NeRF360 [Barron 2022]
+                      3DGS
                     </div>
                   </div>
                 </div>
@@ -281,7 +290,7 @@
                   <div class="bal-before-inset">
                   <img src="static/images/carousel4.jpg">
                     <div class="bal-beforePosition beforeLabel">
-                      Mip-NeRF360 [Barron 2022]
+                      3DGS
                     </div>
                   </div>
                 </div>
@@ -297,7 +306,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!--End Visual Comparisons-->
 
 <!--BibTex citation -->
