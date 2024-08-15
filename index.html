@@ -140,7 +140,7 @@
 
 
 <!--videos carousel -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
@@ -156,16 +156,16 @@
           type="video/mp4">
         </video>
       </div>
-      <!-- <div class="item">
+      <div class="item">
         <video poster="" id="video_3" autoplay controls muted loop height="100%">
           <source src="static/videos/1B_Demo_B_1.mp4"
           type="video/mp4">
         </video>
-     </div> -->
+     </div>
   </div>
 </div>
 </div>
-</section>
+</section> -->
 <!-- End videos carousel -->
 
 <!-- Paper abstract -->
@@ -228,7 +228,8 @@
         Our distributed training approach <b>enables the use of a large number of Gaussian primitives.</b> 
         We observed a strong positive correlation between the number of Gaussian primitives and the final model's PSNR.
         When the number of primitives is similar, our PSNR closely matches the quality of 3DGS trained on a single GPU; 
-        however, we can effectively achieve <b>higher PSNRs by simply increasing the number of primitives.</b>
+        however, we can effectively achieve <b>higher PSNRs by simply increasing the number of primitives.</b> 
+        (* in Table indicates that the results are average values across multiple scenes.)
       </p>
     </div>
     <img src="static/images/PSNRvsPrimitives.png" alt="Graph for quality evaluation">
@@ -239,74 +240,62 @@
 
 
 <!--Visual Comparisons-->
-<!-- <section class="section">
+<section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Visual Comparisons</h2>
-    <div class="content has-text-justified">
-      <p>
-
-      </p>
-    </div>
+    <h2 class="title is-3">Visual Comparisons under Indoor Scenes</h2>
     <div class="columns is-centered">
       <div class="column">
         <div class="content">
           <div class="columns is-centered">
             <div class="column is-full-width">
-              <div id="example1" class="bal-container-small">
-      
-                <div class="bal-after">
-                  <img src="static/images/carousel1.jpg">
-                  <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                    Ours
-                  </div>
-                </div>
-              
+
+              <div id="example1" class="bal-container-small">      
                 <div class="bal-before">
                   <div class="bal-before-inset">
-                  <img src="static/images/carousel2.jpg">
+                  <img src="static/images/DSC04902_6w.png">
                     <div class="bal-beforePosition beforeLabel">
-                      3DGS
+                      Ours
                     </div>
                   </div>
-                </div>
-              
+                </div>                
+                <div class="bal-after">
+                  <img src="static/images/DSC04902.png">
+                  <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                    3DGS
+                  </div>
+                </div>         
                 <div class="bal-handle">
                   <span class="handle-left-arrow"></span>
                   <span class="handle-right-arrow"></span>
                 </div>
-              
               </div>
 
-              <div id="example2" class="bal-container-small">
-      
+              <div id="example2" class="bal-container-small">      
                 <div class="bal-after">
-                  <img src="static/images/carousel3.jpg">
+                  <img src="static/images/DSC07681.png">
                   <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                    Ours
+                    3DGS                    
                   </div>
-                </div>
-              
+                </div>              
                 <div class="bal-before">
                   <div class="bal-before-inset">
-                  <img src="static/images/carousel4.jpg">
+                  <img src="static/images/DSC07681_53605.png">
                     <div class="bal-beforePosition beforeLabel">
-                      3DGS
+                      Ours
                     </div>
                   </div>
-                </div>
-              
+                </div>              
                 <div class="bal-handle">
                   <span class="handle-left-arrow"></span>
                   <span class="handle-right-arrow"></span>
                 </div>
-              
               </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
 <!--End Visual Comparisons-->
 
 <!--BibTex citation -->
