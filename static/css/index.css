@@ -123,6 +123,11 @@ body {
 
 .results-carousel video {
   margin: 0;
+  height: 448px;
+  width: 448px !important;
+}
+.results-carousel .slider-item{
+  width: 448px !important;
 }
 
 .slider-pagination .slider-page {
@@ -170,7 +175,7 @@ body {
 .bal-container-small {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 468px;
   cursor: grab;
   overflow: hidden;
 }
@@ -178,7 +183,7 @@ body {
 .bal-container-big {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 468px;
   cursor: grab;
   overflow: hidden;
 }
