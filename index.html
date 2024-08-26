@@ -73,7 +73,7 @@
                 </a>,</span>
               <span class="author-block">
                 <a href="https://scholar.google.com/citations?user=tAgSyxIAAAAJ" target="_blank">Sijie Yan
-                </a><sup>┼</sup>,</span>
+                </a><sup>#</sup>,</span>
               <span class="author-block">
                 <a href="https://yjxiong.me/" target="_blank">Yuanjun Xiong
                 </a></span>
@@ -81,7 +81,7 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">MThreads AI<br></span>
-              <span class="eql-cntrb"><small><br><sup>*</sup> Equal Contribution, <sup>┼</sup> Corresponding Author </small></span>
+              <span class="eql-cntrb"><small><br><sup>*</sup> Equal Contribution  <sup>#</sup> Corresponding Author </small></span>
             </div>
 
             <div class="column has-text-centered">
@@ -210,8 +210,8 @@
               In this work, we explore the possibility of training high-parameter 3D Gaussian
               splatting (3DGS) models on <b>large-scale, high-resolution</b> datasets. We design a
               general <b>model parallel</b> training method for 3DGS, named RetinaGS, which uses a
-              proper rendering equation and can be applied to any scene and arbitrary distribution
-              of Gaussian primitives. It enables us to explore the scaling behavior of 3DGS in
+              proper rendering equation and can be applied to <b>any scene and arbitrary distribution
+              of Gaussian primitives</b>. It enables us to explore the scaling behavior of 3DGS in
               terms of primitive numbers and training resolutions that were difficult to explore
               before and surpass previous state-of-the-art reconstruction quality. We observe a
               clear positive trend of increasing visual quality when increasing primitive numbers
@@ -226,10 +226,50 @@
   </section>
   <!-- End paper abstract -->
 
+  <!-- Method -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Method</h2>
+
+      <img src="./static/images/Teaser_300dpi_crop.png" alt="Graph for quality evaluation">
+      <div class="content has-text-justified">
+        <p>
+          Different sizes of datasets require varying levels of computational power and numbers of 3DGS Primitives. 
+          Larger and higher-resolution datasets can <b> no longer be trained using just a single GPU </b>, 
+          which limits the pursuit of scale and fidelity in 3DGS.
+        </p>
+      </div>
+
+      <img src="./static/images/pipeline_1500dpi.png" alt="Graph for quality evaluation">  
+      <div class="content has-text-justified">
+        <p>
+          The <b>training pipeline</b> is shown in  above figure. 
+          We denote each subset as a sub-model and assign it to a separate GPU, 
+          while a central manager is responsible for managing the subspaces <em>S<sub>n</sub></em>.
+          This manager also handles the parsing of incoming rendering requests and distributes rendering tasks to the relevant sub-models.
+          The computational results from all sub-models, <em>T<sub>k</sub></em> and <em>C<sub>k</sub></em>, are sent back to the central manager. 
+          These results can be represented in a 2D map with the same resolution as the target image, which consumes only <b>minimal communication bandwidth</b>. 
+          The central manager then completes the final rendering, calculates the loss, 
+          and sends the gradient back to each sub-model for model parameter updates.
+        </p>
+      </div>
+      
+    </div>
+  </section>
+  <!-- End Analysis -->
+
   <!--Visual Comparisons in MatrixCity-->
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Visual Comparisons in MatrixCity</h2>
+
+      <div class="content has-text-justified">
+        <p>
+          <b>1B</b> and <b>100M</b> means 1 billion and 100 millions primitives.
+          <b>8GPU</b> and <b>64GPU</b> means the number of requisite GPUs for training.
+        </p>
+      </div>
+
       <div class="columns is-centered">
 
         <div class="column">
@@ -349,6 +389,13 @@
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Visual Comparisons in ScanNet++ (Zoom in)</h2>
+
+      <div class="content has-text-justified">
+        <p>
+          <b>xxM</b> means xx millions primitives.
+        </p>
+      </div>
+
       <div class="columns is-centered">
 
         <div class="column">
@@ -467,11 +514,8 @@
       <div class="content has-text-justified">
         <p>
           Our distributed training approach <b>enables the use of a large number of Gaussian primitives.</b>
-          We observed a strong positive correlation between the number of Gaussian primitives and the final model's
+          We observed a <b>strong positive correlation</b> between the number of Gaussian primitives and the final model's
           PSNR.
-          When the number of primitives is similar, our PSNR closely matches the quality of 3DGS trained on a single
-          GPU;
-          however, we can effectively achieve <b>higher PSNRs by simply increasing the number of primitives.</b>
         </p>
       </div>
       <img src="./static/images/PSNRvsPrimitives.png" alt="Graph for quality evaluation">
@@ -480,7 +524,7 @@
         <p>
           Methods like VastGaussian and CityGaussian skip the merging process between subspaces,
           <b>implicitly assuming that a single ray is primarily influenced by one subspace and predominantly contributed
-            to by Gaussians within that subspace.</b>
+          to by Gaussians within that subspace.</b>
           This assumption holds true for bird's-eye view datasets. Due to the limited perspective variation in these
           datasets,
           rays almost always pass downward through one, or at most two, subspaces.
